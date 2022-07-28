@@ -1,6 +1,7 @@
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
+npm test 01
 CHALLENGE 1
 
 Write a function named `addOne` that takes an array of numbers, and returns a new array of the numbers, incremented by 1.
@@ -25,14 +26,13 @@ Write a function named `addExclamation` that takes an array of strings, and retu
 
 Use `forEach` to loop over the input array. Modify each string, and add the updated value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-const excla = '!';
-const addExclamation = (arr, excla) => {
+// const excla = '!';
+const addExclamation = (arr) => {
   // Solution code here...
   const afterAddExclamation = [];
-  for (let i=0; i<arr.length; i++) {
-    afterAddExclamation[i] = arr[i] + excla;
-
-  }
+  arr.forEach((item) => {
+    afterAddExclamation.push(item + '!');
+  });
   return afterAddExclamation;
 };
 
@@ -46,12 +46,18 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
-  // const toUpperCase = arr.map(function(x) { return x.toUpperCase(); });
-  const toUpperCase = [];
-  for (let i=0; i<arr.length; i++) {
-    toUpperCase[i] = arr[i].toUpperCase();
-  }
-  return toUpperCase;
+  const afterAddExclamation = [];
+  arr.forEach((item) => {
+    afterAddExclamation.push(item.toUpperCase());
+  });
+  return afterAddExclamation;
+
+
+  // const toUpperCase = [];
+  // for (let i=0; i<arr.length; i++) {
+  //   toUpperCase[i] = arr[i].toUpperCase();
+  // }
+  // return toUpperCase;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,20 +72,22 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
-  const excla = '!';
-  const toUpperCase = [];
-  const afterAddExclamation = [];
-  const afterUpperCaseAndExclamation = [];
-  for (let i=0; i<word.length; i++) {
-    toUpperCase[i] = word[i].toUpperCase();
-    afterAddExclamation[i] = word[i] + excla;
-    afterUpperCaseAndExclamation[i] = toUpperCase[i] + afterAddExclamation[i]; 
-  }
-  return afterUpperCaseAndExclamation;
+  return (word.toUpperCase() + '!');
+  // const afterAddExclamation = [];
+  // word.forEach((item) => {
+  //   afterAddExclamation.push(item.toUpperCase() + '!');
+  // });
+  // return afterAddExclamation;
+
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
+  const newArray = [];
+  words.forEach((item) => {
+    newArray.push(callback(item));
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,10 +108,16 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for(let i=0; i<times; i++) {
+    callback(arr, num);
+  }
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,7 +140,16 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  const availableTrue = [];
+  availableItems.forEach((item) => {
+    if(item.available ) {
+      availableTrue.push(item.name);
+    }
+  });
+  return availableTrue;
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
