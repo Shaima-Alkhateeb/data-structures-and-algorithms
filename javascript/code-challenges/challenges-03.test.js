@@ -3,17 +3,21 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array.
- Return the new array.
+Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
   // Solution code here...
-  const addTwo = [];
-  arr.forEach(element => {
-    addTwo.push(element+2);
-  });
+  let addTwo = [];
+  for(let i=0; i<arr.length; i++)
+    addTwo[i] = arr[i] + 2;
   return addTwo;
+
+  // const addTwo = [];
+  // arr.forEach(element => {
+  //   addTwo.push(element+2);
+  // });
+  // return addTwo;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,10 +30,13 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 
 const typeNum = (arr) => {
   // Solution code here...
-  const returnNumber = arr.filter(gastnumber => gastnumber.typeof === 'number');
-  return returnNumber;
+  const newArray = arr.filter( n => typeof n ==='number' );
+  return newArray;
 
-
+  //or
+  // const newArray = arr.filter(function(n) {
+  //   return (typeof n ==='number');
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,6 +49,8 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
+  const newArray = arr.filter(n => n.includes('and'));
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,6 +63,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  const newArray = arr.filter(n => (n % 2));
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,6 +77,8 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  const newArray = arr.filter(n => !forbiddenValues.includes(n));
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
