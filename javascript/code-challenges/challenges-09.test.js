@@ -45,7 +45,8 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
-  // let newObject = Object.values
+  let newObject = Object.values(obj).includes(value);
+  return newObject;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,6 +156,7 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+
 
 };
 
